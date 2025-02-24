@@ -1,80 +1,64 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2575.3">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>State Selector</title>
+    <style>
+        #selectedStates {
+            border: 1px solid black;
+            min-height: 50px;
+            padding: 10px;
+            margin-top: 10px;
+        }
+    </style>
 </head>
 <body>
-<p class="p1">&lt;!DOCTYPE html&gt;</p>
-<p class="p1">&lt;html lang="en"&gt;</p>
-<p class="p1">&lt;head&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta charset="UTF-8"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;title&gt;State Selector&lt;/title&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;style&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>#selectedStates {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border: 1px solid black;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>min-height: 50px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding: 10px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin-top: 10px;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/style&gt;</p>
-<p class="p1">&lt;/head&gt;</p>
-<p class="p1">&lt;body&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;select id="stateList" size="10"&gt;&lt;/select&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;button id="addState"&gt;Add State&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div id="selectedStates"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;ol id="stateListDisplay"&gt;&lt;/ol&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;button id="clearStates"&gt;Clear States&lt;/button&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;script&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>window.onload = function() {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>let states = ["Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado", "Connecticut", "Delaware", "Florida", "Georgia"];</p>
-<p class="p1"><span class="Apple-converted-space">            </span>let originalStates = [...states];</p>
-<p class="p1"><span class="Apple-converted-space">            </span>let select = document.getElementById("stateList");</p>
-<p class="p1"><span class="Apple-converted-space">            </span>let stateListDisplay = document.getElementById("stateListDisplay");</p>
-<p class="p2"><span class="Apple-converted-space">            </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>function populateSelect() {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>select.innerHTML = "";</p>
-<p class="p1"><span class="Apple-converted-space">                </span>states.forEach((state, index) =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>let option = document.createElement("option");</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>option.value = state;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>option.textContent = state;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>if (index === 0) option.selected = true;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>select.appendChild(option);</p>
-<p class="p1"><span class="Apple-converted-space">                </span>});</p>
-<p class="p1"><span class="Apple-converted-space">            </span>}</p>
-<p class="p2"><span class="Apple-converted-space">            </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>populateSelect();</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById("addState").onclick = function() {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>let selectedState = select.value;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>if (selectedState) {</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>let listItem = document.createElement("li");</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>listItem.textContent = selectedState;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>stateListDisplay.appendChild(listItem);</p>
-<p class="p2"><span class="Apple-converted-space">                    </span></p>
-<p class="p1"><span class="Apple-converted-space">                    </span>states = states.filter(state =&gt; state !== selectedState);</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>populateSelect();</p>
-<p class="p1"><span class="Apple-converted-space">                </span>}</p>
-<p class="p1"><span class="Apple-converted-space">            </span>};</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById("clearStates").onclick = function() {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>states = [...originalStates];</p>
-<p class="p1"><span class="Apple-converted-space">                </span>stateListDisplay.innerHTML = "";</p>
-<p class="p1"><span class="Apple-converted-space">                </span>populateSelect();</p>
-<p class="p1"><span class="Apple-converted-space">            </span>};</p>
-<p class="p1"><span class="Apple-converted-space">        </span>};</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/script&gt;</p>
-<p class="p1">&lt;/body&gt;</p>
-<p class="p1">&lt;/html&gt;</p>
+    <select id="stateList" size="10"></select>
+    <button id="addState">Add State</button>
+    <div id="selectedStates">
+        <ol id="stateListDisplay"></ol>
+    </div>
+    <button id="clearStates">Clear States</button>
+
+    <script>
+        window.onload = function() {
+            let states = ["Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado", "Connecticut", "Delaware", "Florida", "Georgia"];
+            let originalStates = [...states];
+            let select = document.getElementById("stateList");
+            let stateListDisplay = document.getElementById("stateListDisplay");
+            
+            function populateSelect() {
+                select.innerHTML = "";
+                states.forEach((state, index) => {
+                    let option = document.createElement("option");
+                    option.value = state;
+                    option.textContent = state;
+                    if (index === 0) option.selected = true;
+                    select.appendChild(option);
+                });
+            }
+            
+            populateSelect();
+
+            document.getElementById("addState").onclick = function() {
+                let selectedState = select.value;
+                if (selectedState) {
+                    let listItem = document.createElement("li");
+                    listItem.textContent = selectedState;
+                    stateListDisplay.appendChild(listItem);
+                    
+                    states = states.filter(state => state !== selectedState);
+                    populateSelect();
+                }
+            };
+
+            document.getElementById("clearStates").onclick = function() {
+                states = [...originalStates];
+                stateListDisplay.innerHTML = "";
+                populateSelect();
+            };
+        };
+    </script>
 </body>
 </html>
