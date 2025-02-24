@@ -1,69 +1,53 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2575.3">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Odd Numbers and Sum</title>
 </head>
 <body>
-<p class="p1">&lt;!DOCTYPE html&gt;</p>
-<p class="p1">&lt;html lang="en"&gt;</p>
-<p class="p1">&lt;head&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta charset="UTF-8"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;title&gt;Odd Numbers and Sum&lt;/title&gt;</p>
-<p class="p1">&lt;/head&gt;</p>
-<p class="p1">&lt;body&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;h2&gt;Odd Numbers in Range:&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;p id="odd-numbers"&gt;&lt;/p&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;h2&gt;Sum of All Numbers in Range:&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;p id="sum-result"&gt;&lt;/p&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;script&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>// Get the two numbers from the user</p>
-<p class="p1"><span class="Apple-converted-space">        </span>let num1 = prompt("Enter the first number:");</p>
-<p class="p1"><span class="Apple-converted-space">        </span>let num2 = prompt("Enter the second number:");</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>// Convert to numbers</p>
-<p class="p1"><span class="Apple-converted-space">        </span>num1 = parseInt(num1);</p>
-<p class="p1"><span class="Apple-converted-space">        </span>num2 = parseInt(num2);</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>// Ensure valid input</p>
-<p class="p1"><span class="Apple-converted-space">        </span>if (isNaN(num1) || isNaN(num2)) {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById("odd-numbers").textContent = "Invalid input. Please enter numbers.";</p>
-<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById("sum-result").textContent = "";</p>
-<p class="p1"><span class="Apple-converted-space">        </span>} else {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>// Determine the start and end of the range</p>
-<p class="p1"><span class="Apple-converted-space">            </span>let start = Math.min(num1, num2);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>let end = Math.max(num1, num2);</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>let sum = 0;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>let oddNumbers = "";</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>// Loop through the range</p>
-<p class="p1"><span class="Apple-converted-space">            </span>for (let i = start; i &lt;= end; i++) {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>sum += i; // Add to sum</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">                </span>if (i % 2 !== 0) { // Check if odd</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>oddNumbers += i + " ";</p>
-<p class="p1"><span class="Apple-converted-space">                </span>}</p>
-<p class="p1"><span class="Apple-converted-space">            </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>// Display results on the page</p>
-<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById("odd-numbers").textContent = oddNumbers.trim();</p>
-<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById("sum-result").textContent = sum;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/script&gt;</p>
-<p class="p2"><br></p>
-<p class="p1">&lt;/body&gt;</p>
-<p class="p1">&lt;/html&gt;</p>
+
+    <h2>Odd Numbers in Range:</h2>
+    <p id="odd-numbers"></p>
+
+    <h2>Sum of All Numbers in Range:</h2>
+    <p id="sum-result"></p>
+
+    <script>
+        // Get the two numbers from the user
+        let num1 = prompt("Enter the first number:");
+        let num2 = prompt("Enter the second number:");
+
+        // Convert to numbers
+        num1 = parseInt(num1);
+        num2 = parseInt(num2);
+
+        // Ensure valid input
+        if (isNaN(num1) || isNaN(num2)) {
+            document.getElementById("odd-numbers").textContent = "Invalid input. Please enter numbers.";
+            document.getElementById("sum-result").textContent = "";
+        } else {
+            // Determine the start and end of the range
+            let start = Math.min(num1, num2);
+            let end = Math.max(num1, num2);
+
+            let sum = 0;
+            let oddNumbers = "";
+
+            // Loop through the range
+            for (let i = start; i <= end; i++) {
+                sum += i; // Add to sum
+
+                if (i % 2 !== 0) { // Check if odd
+                    oddNumbers += i + " ";
+                }
+            }
+
+            // Display results on the page
+            document.getElementById("odd-numbers").textContent = oddNumbers.trim();
+            document.getElementById("sum-result").textContent = sum;
+        }
+    </script>
+
 </body>
 </html>
