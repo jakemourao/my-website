@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Information</title>
+</head>
+<body>
+
+    <p id="children-info"></p>
+
+    <script>
+        // Ask for the user's first and last name
+        let firstName = prompt("Enter your first name:");
+        let lastName = prompt("Enter your last name:");
+
+        // Display the full name in an alert
+        alert("Your name is " + firstName + " " + lastName);
+
+        // Ask for the number of children
+        let numChildren = prompt("How many children do you have?");
+        numChildren = parseInt(numChildren); // Convert input to a number
+
+        // Determine the appropriate message
+        let message;
+        if (isNaN(numChildren) || numChildren < 0) {
+            message = "Invalid input.";
+        } else if (numChildren === 0) {
+            message = "You have no children.";
+        } else if (numChildren === 1) {
+            message = "You have 1 child.";
+        } else {
+            message = "You have " + numChildren + " children.";
+        }
+
+        // Display the message on the page
+        document.getElementById("children-info").textContent = message;
+    </script>
+
+</body>
+</html>
