@@ -1,65 +1,48 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2575.3">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; -webkit-text-stroke: #000000}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; -webkit-text-stroke: #000000; min-height: 14.0px}
-    span.s1 {font-kerning: none}
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Times Table</title>
 </head>
 <body>
-<p class="p1"><span class="s1">&lt;!DOCTYPE html&gt;</span></p>
-<p class="p1"><span class="s1">&lt;html lang="en"&gt;</span></p>
-<p class="p1"><span class="s1">&lt;head&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;meta charset="UTF-8"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;title&gt;Times Table&lt;/title&gt;</span></p>
-<p class="p1"><span class="s1">&lt;/head&gt;</span></p>
-<p class="p1"><span class="s1">&lt;body&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;h2&gt;Multiplication Tables&lt;/h2&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div id="output"&gt;&lt;/div&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;script&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>function timesTable(number) {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>// Get the output div</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>let outputDiv = document.getElementById("output");</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>// Create a new paragraph element to hold the times table</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>let tableContent = document.createElement("p");</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>// Add table title</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>tableContent.innerHTML = `&lt;h3&gt;Times Table for ${number}&lt;/h3&gt;`;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>// Generate the multiplication table up to 12</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>for (let i = 1; i &lt;= 12; i++) {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>tableContent.innerHTML += `${number} x ${i} = ${number * i} &lt;br&gt;`;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>// Append the table content to the output div</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>outputDiv.appendChild(tableContent);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>// Call timesTable() function with values 3, 7, and 11</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>timesTable(3);</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>// Insert horizontal rule after the first table</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>document.getElementById("output").innerHTML += "&lt;hr&gt;";</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>timesTable(7);</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>// Insert horizontal rule after the second table</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>document.getElementById("output").innerHTML += "&lt;hr&gt;";</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>timesTable(11);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/script&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">&lt;/body&gt;</span></p>
-<p class="p1"><span class="s1">&lt;/html&gt;</span></p>
+
+    <h2>Multiplication Tables</h2>
+    <div id="output"></div>
+
+    <script>
+        function timesTable(number) {
+            // Get the output div
+            let outputDiv = document.getElementById("output");
+
+            // Create a new paragraph element to hold the times table
+            let tableContent = document.createElement("p");
+
+            // Add table title
+            tableContent.innerHTML = `<h3>Times Table for ${number}</h3>`;
+
+            // Generate the multiplication table up to 12
+            for (let i = 1; i <= 12; i++) {
+                tableContent.innerHTML += `${number} x ${i} = ${number * i} <br>`;
+            }
+
+            // Append the table content to the output div
+            outputDiv.appendChild(tableContent);
+        }
+
+        // Call timesTable() function with values 3, 7, and 11
+        timesTable(3);
+
+        // Insert horizontal rule after the first table
+        document.getElementById("output").innerHTML += "<hr>";
+
+        timesTable(7);
+
+        // Insert horizontal rule after the second table
+        document.getElementById("output").innerHTML += "<hr>";
+
+        timesTable(11);
+    </script>
+
 </body>
 </html>
