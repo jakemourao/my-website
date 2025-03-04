@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Song List JSON</title>
+</head>
+<body>
+    <h1>Song List JSON as String</h1>
+    <div id="jsonOutput"></div>
+
+    <script>
+        const songs = [
+            {
+                "title": "Bohemian Rhapsody",
+                "artist": "Queen",
+                "year": 1975,
+                "genres": ["rock"]
+            },
+            {
+                "title": "Billie Jean",
+                "artist": "Michael Jackson",
+                "year": 1982,
+                "genres": ["pop"]
+            },
+            {
+                "title": "Take Me Home, Country Roads",
+                "artist": "John Denver",
+                "year": 1971,
+                "genres": ["country"]
+            },
+            {
+                "title": "Hotel California",
+                "artist": "Eagles",
+                "year": 1976,
+                "genres": ["rock"]
+            },
+            {
+                "title": "Thriller",
+                "artist": "Michael Jackson",
+                "year": 1982,
+                "genres": ["pop", "rock"]
+            },
+            {
+                "title": "Rocky Mountain High",
+                "artist": "John Denver",
+                "year": 1972,
+                "genres": ["country"]
+            },
+            {
+                "title": "We Will Rock You",
+                "artist": "Queen",
+                "year": 1977,
+                "genres": ["rock"]
+            },
+            {
+                "title": "Man in the Mirror",
+                "artist": "Michael Jackson",
+                "year": 1988,
+                "genres": ["pop"]
+            }
+        ];
+
+        const jsonString = JSON.stringify(songs, null, 2);
+        document.getElementById('jsonOutput').textContent = jsonString;
+    </script>
+</body>
+</html>

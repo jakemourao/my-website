@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Filter Songs by Genre</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h1>Filter Songs by Genre</h1>
+    <div>
+        <label for="genreSelect">Select Genre:</label>
+        <select id="genreSelect"></select>
+        <button id="filterButton">Filter</button>
+    </div>
+
+    <div id="filteredSongs"></div>
+
+    <!-- Embed the JSON data directly -->
+    <script>
+        const songs = [
+            {
+                "title": "Bohemian Rhapsody",
+                "artist": "Queen",
+                "year": 1975,
+                "genres": ["rock"]
+            },
+            {
+                "title": "Billie Jean",
+                "artist": "Michael Jackson",
+                "year": 1982,
+                "genres": ["pop"]
+            },
+            {
+                "title": "Take Me Home, Country Roads",
+                "artist": "John Denver",
+                "year": 1971,
+                "genres": ["country"]
+            },
+            {
+                "title": "Hotel California",
+                "artist": "Eagles",
+                "year": 1976,
+                "genres": ["rock"]
+            },
+            {
+                "title": "Thriller",
+                "artist": "Michael Jackson",
+                "year": 1982,
+                "genres": ["pop", "rock"]
+            },
+            {
+                "title": "Rocky Mountain High",
+                "artist": "John Denver",
+                "year": 1972,
+                "genres": ["country"]
+            },
+            {
+                "title": "We Will Rock You",
+                "artist": "Queen",
+                "year": 1977,
+                "genres": ["rock"]
+            },
+            {
+                "title": "Man in the Mirror",
+                "artist": "Michael Jackson",
+                "year": 1988,
+                "genres": ["pop"]
+            }
+        ];
+
+        // Extract genres and populate dropdown
+        let genres = new Set();
+        songs.forEach(song => {
+            song.genres.forEach(genre => genres.add(genre));
+        });
+
+        const genreSelect = $('#genreSelect');
+        genres.forEach(genre => {
+            genreSelect.append(`<option value="${genre}">${genre}</option>`);
+        });
+
+        // Filter and display songs based on selected genre
+        $('#filterButton').click(function () {
+            const selectedGenre = $('#genreSelect').val();
+            const filteredSongs = songs.filter(song => song.genres.includes(selectedGenre));
+            let output = '<h2>Filtered Songs:</h2>';
+            if (filteredSongs.length > 0) {
+                filteredSongs.forEach(song => {
+                    output += `<p>${song.title}</p>`;
+                });
+            } else {
+                output += `<p>No songs found for the selected genre.</p>`;
+            }
+            $('#filteredSongs').html(output);
+        });
+    </script>
+</body>
+</html>
