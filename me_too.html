@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Me</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  body { font-family: 'Roboto', sans-serif; }
+  h1, h2 { color: #333; font-size: 24px; margin-bottom: 30px; }
+  ul { border: 1px solid #ddd; padding: 10px; width: 50%; margin: 0 auto; }
+  table { border-collapse: collapse; width: 100%; margin-top: 20px; }
+  table, th, td { border: 1px solid #ddd; padding: 8px; }
+  th { background-color: #f2f2f2; }
+  tr:nth-child(even) { background-color: #f9f9f9; }
+  .food-section { display: flex; align-items: center; margin-top: 20px; }
+  .food-image { background-image: url('https://upload.wikimedia.org/wikipedia/commons/d/d3/Supreme_pizza.jpg'); background-size: cover; width: 300px; height: 200px; margin-right: 20px; }
+  .social-icons { position: fixed; top: 100px; right: 35px; }
+  .social-icons a { margin-left: 10px; }
+  form { margin-top: 40px; }
+  form table { margin: 0 auto; }
+  label { text-align: right; display: block; }
+</style>
+</head>
+<body>
+
+<h1>Jake Mourao</h1>
+<p>A few years ago, I took a trip to the mountains, where the crisp air and breathtaking views provided a perfect escape from the city. I spent my days hiking along winding trails, surrounded by towering pine trees and the distant sound of rushing streams. Discovering hidden waterfalls and watching the sunset over the peaks was truly unforgettable. Evenings were spent by the campfire, sharing stories under a sky full of stars.</p>
+
+<h2>Favorite Pet Names</h2>
+<ul>
+  <li>A dog named Max</li>
+  <li>A cat named Luna</li>
+  <li>A parrot named Kiwi</li>
+</ul>
+
+<h2>Favorite Restaurant</h2>
+<p>My favorite restaurant is <strong>Capo</strong> in Boston. Their Italian dishes are amazing, and the atmosphere is perfect for a night out. <a href="https://www.caporestaurant.com" target="_blank">Check out their website</a>.</p>
+
+<h2>Favorite Food</h2>
+<div class="food-section">
+  <div class="food-image"></div>
+  <div>
+    <p>I absolutely love pizza, especially with a thin, crispy crust and topped with fresh mozzarella and basil. I usually serve it hot right out of the oven with a side of garlic bread.</p>
+  </div>
+</div>
+
+<br><br><br><br><br><br><br><br><br><h2>Favorite Books</h2>
+<table>
+  <tr>
+    <th>Book Name</th>
+    <th>Cover</th>
+    <th>Author</th>
+    <th>Summary</th>
+  </tr>
+  <tr>
+    <td>The Great Gatsby</td>
+    <td><img src="https://m.media-amazon.com/images/I/81af+MCATTL.jpg" alt="The Great Gatsby" style="width:50px;"></td>
+    <td>F. Scott Fitzgerald</td>
+    <td>A tale of wealth, love, and the American Dream set in the 1920s.</td>
+  </tr>
+  <tr>
+    <td>1984</td>
+    <td><img src="https://m.media-amazon.com/images/I/71kxa1-0mfL.jpg" alt="1984" style="width:50px;"></td>
+    <td>George Orwell</td>
+    <td>A dystopian novel about surveillance and totalitarianism.</td>
+  </tr>
+  <tr>
+    <td>The Catcher in the Rye</td>
+    <td><img src="https://m.media-amazon.com/images/I/81OthjkJBuL.jpg" alt="The Catcher in the Rye" style="width:50px;"></td>
+    <td>J.D. Salinger</td>
+    <td>A coming-of-age story about teenage rebellion and identity.</td>
+  </tr>
+  <tr>
+    <td>Harry Potter and the Sorcerer's Stone</td>
+    <td><img src="https://m.media-amazon.com/images/I/81YOuOGFCJL.jpg" alt="Harry Potter" style="width:50px;"></td>
+    <td>J.K. Rowling</td>
+    <td>The magical beginning of Harry Potter's adventures at Hogwarts.</td>
+  </tr>
+</table>
+
+<div class="social-icons">
+  <a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" style="width:30px;"></a>
+  <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="Twitter" style="width:30px;"></a>
+</div>
+
+<h2>Contact Me</h2>
+<form>
+  <table>
+    <tr>
+      <td><label for="first-name">First Name:</label></td>
+      <td><input type="text" id="first-name" name="first-name"></td>
+    </tr>
+    <tr>
+      <td><label for="last-name">Last Name:</label></td>
+      <td><input type="text" id="last-name" name="last-name"></td>
+    </tr>
+    <tr>
+      <td><label for="city">City:</label></td>
+      <td><input type="text" id="city" name="city"></td>
+    </tr>
+    <tr>
+      <td><label for="state">State:</label></td>
+      <td>
+        <select id="state" name="state">
+          <option value="">Select State</option>
+          <option value="MA">Massachusetts</option>
+          <option value="CA">California</option>
+          <option value="NY">New York</option>
+          <option value="TX">Texas</option>
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><input type="submit" value="Submit"></td>
+    </tr>
+  </table>
+</form>
+
+</body>
+</html>
