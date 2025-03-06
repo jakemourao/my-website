@@ -9,23 +9,27 @@
     <form>
         <label for="username">Enter your name:</label>
         <input type="text" id="username" name="username">
-        <button type="button" id="hello">Hello</button>
-        <button type="button" id="goodbye">Good Bye</button>
-        <button type="button" id="greetings">Greetings</button>
+        <button type="button">Hello</button>
+        <button type="button">Good Bye</button>
+        <button type="button">Greetings</button>
     </form>
 
     <script>
         function speak(event) {
             let name = document.getElementById("username").value;
-            let prefix = event.target.textContent;
+            let prefix = event.target.textContent;  // Get the button text as prefix
             alert(prefix + " " + name);
         }
 
         window.onload = function() {
-            document.getElementById("hello").onclick = speak;
-            document.getElementById("goodbye").onclick = speak;
-            document.getElementById("greetings").onclick = speak;
-        };
+            // Get all button elements inside the form
+            const buttons = document.querySelectorAll("form button");
+
+            // Attach the event handler to each button
+            buttons.forEach(button => {
+                button.onclick = speak;
+            });
+        }
     </script>
 </body>
 </html>
