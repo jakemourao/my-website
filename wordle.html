@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wordle Game</title>
+<style>
+    body { font-family: Arial, sans-serif; display: flex; flex-direction: column; align-items: center; padding: 20px; }
+    .grid { display: grid; grid-template-columns: repeat(5, 40px); gap: 5px; margin-bottom: 10px; }
+    .cell { width: 40px; height: 40px; display: flex; justify-content: center; align-items: center; border: 1px solid #ccc; }
+    .correct { background-color: green; color: white; }
+    .present { background-color: gold; color: white; }
+    .absent { background-color: gray; color: white; }
+    .letter-board { margin-top: 20px; }
+    .hidden { display: none; }
+</style>
+</head>
+<body>
+<h1>Wordle Game</h1>
+<div id="game" class="game-grid"></div>
+<input type="text" id="guess-input" maxlength="5">
+<button onclick="checkGuess()">Submit Guess</button>
+<button id="restart-btn" class="hidden" onclick="startGame()">Restart Game</button>
+<div class="letter-board" id="letter-board"></div>
+<script>
+    let answer = "";
+    let guesses = [];
+    
+    async function fetchWord() {
+        try {
+            const response = await fetch("https://random-word-api.vercel.app/api?words=1&length=5");
+            const data = await response.json();
+            return data[0].toLowerCase();
+        } catch (error) {
+            console.error("Error fetching word:", error);
+            return "apple";
+        }
+    }
+    
+    async function startGame() {
+        answer = await fetchWord();
+        console.log("Answer:", answer);
+        guesses = [];
+        const gameContainer = document.getElementById("game");
+        gameContainer.innerHTML = "";
+        document.getElementById("restart-btn").classList.add("hidden");
+        
+        // Create an empty 5x6 grid
+        for (let row = 0; row < 6; row++) {
+            const rowDiv = document.createElement("div");
+            rowDiv.className = "grid";
+            rowDiv.dataset.index = row;
+            for (let col = 0; col < 5; col++) {
+                const cell = document.createElement("div");
+                cell.className = "cell";
+                cell.dataset.row = row;
+                cell.dataset.col = col;
+                rowDiv.appendChild(cell);
+            }
+            gameContainer.appendChild(rowDiv);
+        }
+    }
+    
+    function checkGuess() {
+        const input = document.getElementById("guess-input").value.toLowerCase();
+        if (input.length !== 5 || guesses.length >= 6) return;
+        
+        const result = Array.from(input).map((char, index) =>
+            char === answer[index] ? "correct" : answer.includes(char) ? "present" : "absent"
+        );
+        
+        const row = document.querySelector(`.grid[data-index='${guesses.length}']`);
+        if (!row) return;
+        
+        result.forEach((status, i) => {
+            const cell = row.children[i];
+            cell.className = `cell ${status}`;
+            cell.textContent = input[i].toUpperCase();
+        });
+        
+        guesses.push(input);
+        
+        if (input === answer || guesses.length >= 6) {
+            document.getElementById("restart-btn").classList.remove("hidden");
+            if (input !== answer) alert(`The word was: ${answer.toUpperCase()}`);
+        }
+        document.getElementById("guess-input").value = "";
+    }
+    
+    startGame();
+</script>
+</body>
+</html>
